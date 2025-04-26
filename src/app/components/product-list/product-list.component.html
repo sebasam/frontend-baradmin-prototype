@@ -1,0 +1,29 @@
+<div class="toolbar">
+    <h2>Productos</h2>
+    <button class="btn btn-primary" (click)="goToForm()">Nuevo</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Existencias</th>
+            <th>Disponible</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+        <td>{{ p.name }}</td>
+        <td>{{ p.price | currency }}</td>
+        <td>{{ p.existences }}</td>
+        <td>{{ p.aviable ? 'Sí' : 'No' }}</td>
+        <td>
+            <button class="btn btn-sm btn-secondary" (click)="goToForm(p._id!)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteProduct(p._id!)">Eliminar</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+.form-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+label {
+    margin-top: 0.5rem;
+    display: block;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    align-self: flex-end;
+}

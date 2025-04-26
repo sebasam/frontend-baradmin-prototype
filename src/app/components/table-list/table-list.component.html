@@ -1,0 +1,31 @@
+<div class="toolbar">
+    <h2>Mesas</h2>
+    <button class="btn btn-primary" (click)="goToForm()">Nueva Mesa</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of tables">
+            <td>{{ t.number }}</td>
+            <td>{{ t.status }}</td>
+            <td>
+            <button class="btn btn-sm btn-secondary" (click)="goToForm(t._id)">Editar</button>
+            <button
+                class="btn btn-sm"
+                [ngClass]="t.status === 'reserved' ? 'btn-success' : 'btn-warning'"
+                (click)="changeStatus(t, t.status === 'reserved' ? 'liberate' : 'reserve')"
+            >
+                {{ t.status === 'reserved' ? 'Liberar' : 'Reservar' }}
+            </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

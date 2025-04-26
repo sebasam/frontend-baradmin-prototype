@@ -1,0 +1,21 @@
+<div class="form-container">
+    <h2>{{ isEdit ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+    <form (ngSubmit)="save()">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="product.name" name="name" required />
+
+        <label>Precio</label>
+        <input type="number" [(ngModel)]="product.price" name="price" required min="0" />
+    
+        <label>Existencias</label>
+        <input type="number" [(ngModel)]="product.existences" name="existences" required min="0" />
+
+        <label>
+            <input type="checkbox" [(ngModel)]="product.aviable" name="aviable" />
+            Disponible
+        </label>
+
+        <button type="submit" class="btn-submit">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
+    </form>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="form-container">
+    <h2>{{ isEdit ? 'Editar Mesa' : 'Nueva Mesa' }}</h2>
+    <form (ngSubmit)="save()">
+        <label>Número de mesa</label>
+        <input type="number" [(ngModel)]="table.number" name="number" required min="1" />
+    
+        <label>Estado</label>
+        <select [(ngModel)]="table.status" name="status" [disabled]="!isEdit">
+            <option value="available">Disponible</option>
+            <option value="reserved">Reservada</option>
+            <option value="occupied">Ocupada</option>
+        </select>
+    
+        <button type="submit" class="btn-submit">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
+    </form>
+</div>

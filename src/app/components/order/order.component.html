@@ -1,0 +1,20 @@
+<form (ngSubmit)="save()" class="order-form">
+    <label>Mesa:</label>
+    <select [(ngModel)]="order.table" name="table" required>
+      <option *ngFor="let t of tables" [value]="t._id">{{ t.number }}</option>
+    </select>
+
+    <div *ngFor="let p of products">
+        <label>{{ p.name }} ({{ p.price | currency }})</label>
+        <input type="number" min="1" [value]="0"
+                (change)="addProduct(p._id!, $event.target.valueAsNumber)" />
+    </div>
+
+    <label>
+        <input type="checkbox" [(ngModel)]="order.tip" name="tip" />
+        Incluir propina 10%
+    </label>
+
+    <button type="submit">Crear Orden</button>
+</form>
+
